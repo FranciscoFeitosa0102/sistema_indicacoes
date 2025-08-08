@@ -1,0 +1,1492 @@
+{
+  "name": "UberlandiaRecarga para disparos",
+  "nodes": [
+    {
+      "parameters": {
+        "batchSize": 50,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -260,
+        -1860
+      ],
+      "id": "9c6a5e25-2519-4791-8aa3-43f0e772447b",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "bf088744-6a6e-441b-8903-c6c8df4ec50d",
+              "leftValue": "={{ $json.responde }}",
+              "rightValue": "nao ",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -460,
+        -1740
+      ],
+      "id": "74cae3f9-91c8-43af-af1a-addcf6371e67",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "10 03 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "25 03 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "23 03 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "06 10 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1060,
+        -1780
+      ],
+      "id": "6e0c61ab-644a-4d4d-88cc-16c823065fb7",
+      "name": "Primeiro"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "10",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "4b3ed11c-5fb4-4804-aaaa-398be1a5c58b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Natalia"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "200ef249-a13f-4d76-89c7-0e1a8139b134",
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "25",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ludmila"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e3e04aaa-e080-442a-98cb-9d9bb089e7c0",
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Talita"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2a1afc0f-9a60-4b1d-943b-8bdfcafb37d8",
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "25",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Stefany"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "58134510-4b4d-4bf4-8f03-540832e9a89f",
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "23",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Henrique"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "69ab1e8a-e6c4-43db-8ebb-548660f2802b",
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "35",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "35"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a6b3055f-2955-49c2-84f0-32dfc0a8c7e4",
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "40",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "40"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "693cd52a-87c7-4da3-9dcc-a0e24e29b658",
+                    "leftValue": "={{ $('Primeiro').item.json.Minute }}",
+                    "rightValue": "45",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "45"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        260,
+        -1800
+      ],
+      "id": "cade2c0d-a1aa-4c22-9639-4677b8bf6a2d",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "amount": "={{ $json.waitTime }}\n\n"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -220,
+        -2040
+      ],
+      "id": "eeb47b8f-f9ba-45d8-bbf3-fefaaf9da326",
+      "name": "Wait1",
+      "webhookId": "29428335-2167-4e36-8f41-c0fc7f9ef515"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n    item.json.waitTime = Math.floor(Math.random() * (7 - 3 + 1)) + 3;\n    return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -380,
+        -2040
+      ],
+      "id": "24c1da10-c2c3-4f71-95db-bac0eafb755e",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "batchSize": 10,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -100,
+        -1640
+      ],
+      "id": "6c4f4a84-8670-4f64-b00d-e06cf36b0b58",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1MNDX0AirJe0sHwM3WNrZcEAUMEFXwgxyWQB3qq_JrhY/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MNDX0AirJe0sHwM3WNrZcEAUMEFXwgxyWQB3qq_JrhY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Numero": "={{ $('Switch1').item.json.Numero }}",
+            "Enviado": "sim"
+          },
+          "matchingColumns": [
+            "Numero"
+          ],
+          "schema": [
+            {
+              "id": "Cliente",
+              "displayName": "Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Numero",
+              "displayName": "Numero",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Enviado",
+              "displayName": "Enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Respondeu",
+              "displayName": "Respondeu",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1500,
+        -3200
+      ],
+      "id": "7335cc69-4005-440c-8d44-8b7cef68f1f2",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gBMTjEUfh2OGCfA0",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "amount": "={{ $json.waitTime }}\n\n"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1660,
+        -3340
+      ],
+      "id": "0ce6a18d-517a-4a03-b23d-4b598cfd71d9",
+      "name": "Wait3",
+      "webhookId": "3b2f760d-5089-40a3-98cf-31815dbd6408"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n    item.json.waitTime = Math.floor(Math.random() * (7 - 3 + 1)) + 3;\n    return item;\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        -3360
+      ],
+      "id": "8268d2b0-19ff-4aa2-8cbb-7b3705c2e7b7",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1s7AFQ6ho3s60GrdxLrZKn57DLF9lL8nm6qmzGu6srlw/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lista",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1s7AFQ6ho3s60GrdxLrZKn57DLF9lL8nm6qmzGu6srlw/edit#gid=0"
+        },
+        "options": {
+          "outputFormatting": {
+            "values": {
+              "general": "UNFORMATTED_VALUE",
+              "date": "FORMATTED_STRING"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1300,
+        -1380
+      ],
+      "id": "99f1b6d8-a738-48f3-914b-fe9fdeaa1946",
+      "name": "Leitura de dados1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gBMTjEUfh2OGCfA0",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "55 12 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "58 12 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "01 13 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "05 13 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "10 13 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "38 06 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "03 07 * * *"
+            },
+            {
+              "field": "seconds"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1480,
+        -1380
+      ],
+      "id": "f79e14db-fc78-45bc-afbb-a8211000aca6",
+      "name": "Primeiro1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos_GeralUberlandia",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos_GeralUberlandia"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ new Date().toISOString().split('T')[0] }}",
+            "id": "={{ $json.Numero }}",
+            "numero_cliente": "={{ $json.Numero }}",
+            "nome_vendedor": "a"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "numero_cliente",
+              "displayName": "numero_cliente",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "nome_vendedor",
+              "displayName": "nome_vendedor",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "responde",
+              "displayName": "responde",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "enviado",
+              "displayName": "enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -1020,
+        -1400
+      ],
+      "id": "2a41f8ea-17ea-44ff-893b-77b11dc3bd8d",
+      "name": "Postgres5",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos_GeralUberlandia",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos_GeralUberlandia"
+        },
+        "limit": 40000,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -660,
+        -1800
+      ],
+      "id": "f711d016-e674-41c3-84f7-aad0b7882976",
+      "name": "Postgres6",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos_GeralUberlandia",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos_GeralUberlandia"
+        },
+        "deleteCommand": "delete",
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        140,
+        -1940
+      ],
+      "id": "22e198dd-9aa2-4e84-b38f-8fbe38ad5e03",
+      "name": "Postgres7",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "numero_cliente": "={{ $json.numero_cliente }}",
+            "nome_vendedor": "Talita",
+            "id": "={{ $json.numero_cliente }}",
+            "data": "={{ new Date().toISOString().split('T')[0] }}\n"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "numero_cliente",
+              "displayName": "numero_cliente",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "nome_vendedor",
+              "displayName": "nome_vendedor",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "responde",
+              "displayName": "responde",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviado",
+              "displayName": "Enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1740,
+        -2440
+      ],
+      "id": "332d71af-60cb-4d1e-b55f-25a30bf952ec",
+      "name": "Talita",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "numero_cliente": "={{ $json.numero_cliente }}",
+            "nome_vendedor": "Stefani",
+            "id": "={{ $json.numero_cliente }}",
+            "data": "={{ new Date().toISOString().split('T')[0] }}\n"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "numero_cliente",
+              "displayName": "numero_cliente",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "nome_vendedor",
+              "displayName": "nome_vendedor",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "responde",
+              "displayName": "responde",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviado",
+              "displayName": "Enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1760,
+        -2360
+      ],
+      "id": "0bc69c6e-ac8c-4a2c-bd91-1c79908dfa53",
+      "name": "Stefani",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "numero_cliente": "={{ $json.numero_cliente }}",
+            "nome_vendedor": "Henrique",
+            "id": "={{ $json.numero_cliente }}",
+            "data": "={{ new Date().toISOString().split('T')[0] }}\n"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "numero_cliente",
+              "displayName": "numero_cliente",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "nome_vendedor",
+              "displayName": "nome_vendedor",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "responde",
+              "displayName": "responde",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviado",
+              "displayName": "Enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1760,
+        -2240
+      ],
+      "id": "838cf52e-ea1f-402d-a37b-d41114381418",
+      "name": "Henrique",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos_Uberlandia",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos_Uberlandia"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "nome_vendedor": "Joao",
+            "data": "={{ new Date().toISOString().split('T')[0] }}\n",
+            "numero_cliente": "={{ $json.numero_cliente }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "numero_cliente",
+              "displayName": "numero_cliente",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "nome_vendedor",
+              "displayName": "nome_vendedor",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "responde",
+              "displayName": "responde",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviado",
+              "displayName": "Enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        820,
+        -2720
+      ],
+      "id": "0794a114-f4d6-4d93-a362-0d29f8348465",
+      "name": "joao",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "clientes_disparos_Uberlandia",
+          "mode": "list",
+          "cachedResultName": "clientes_disparos_Uberlandia"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "nome_vendedor": "Karita",
+            "data": "={{ new Date().toISOString().split('T')[0] }}\n",
+            "numero_cliente": "={{ $json.numero_cliente }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "numero_cliente",
+              "displayName": "numero_cliente",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "nome_vendedor",
+              "displayName": "nome_vendedor",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "responde",
+              "displayName": "responde",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviado",
+              "displayName": "Enviado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1060,
+        -2580
+      ],
+      "id": "cfcd6e0f-b9ce-42ce-9632-5ba36a57cc1d",
+      "name": "Karita",
+      "credentials": {
+        "postgres": {
+          "id": "azT8r3KsLvbBEiym",
+          "name": "Postgres account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Primeiro": {
+      "main": [
+        [
+          {
+            "node": "Postgres6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "joao",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Karita",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Talita",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stefani",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Henrique",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [],
+        []
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Postgres7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Primeiro1": {
+      "main": [
+        [
+          {
+            "node": "Leitura de dados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leitura de dados1": {
+      "main": [
+        [
+          {
+            "node": "Postgres5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres6": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Talita": {
+      "main": [
+        []
+      ]
+    },
+    "Stefani": {
+      "main": [
+        []
+      ]
+    },
+    "Henrique": {
+      "main": [
+        []
+      ]
+    },
+    "joao": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Karita": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f13461f7-a939-430a-b25b-29ffad98686d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2ef4fa39eab589cfa0066298da2ddbb1750b6bd8f1c79f62930ab9f8ab950120"
+  },
+  "id": "yU8Joed9zBT6lkvL",
+  "tags": []
+}

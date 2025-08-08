@@ -1,0 +1,827 @@
+{
+  "name": "PatrocínioGestãodeTrafegoPago",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c1f51980-271b-46ad-ba28-c75e4a454a58",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -480,
+        0
+      ],
+      "id": "d17e714c-c4b8-4944-aa90-d8e456739960",
+      "name": "Webhook",
+      "webhookId": "c1f51980-271b-46ad-ba28-c75e4a454a58"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cf6f3541-31a1-4a03-95d3-875694c2e74e",
+                    "leftValue": "={{ $json.body.changed_attributes[1].custom_attributes }}",
+                    "rightValue": "message_updated",
+                    "operator": {
+                      "type": "object",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Conversa atualizada"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7c835f4f-dec2-447d-9972-809a44292e23",
+                    "leftValue": "={{ $json.body.event }}",
+                    "rightValue": "conversation_created",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Conversa Criada"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7fc2a341-a253-4bab-92eb-18a158ec3c9d",
+                    "leftValue": "={{ $json.body.changed_attributes[0].status.current_value }}",
+                    "rightValue": "resolved",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Conversa resolvida"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -200,
+        0
+      ],
+      "id": "74a8d769-d3a1-405b-8af3-de9378bcf02d",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.inbox_id }}",
+                    "rightValue": 7,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    },
+                    "id": "cc2a8fc3-ed4c-498e-816e-21ddd32a4464"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Carol"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5055e619-19fa-4fed-a20a-b12bc9201f8e",
+                    "leftValue": "={{ $json.body.inbox_id }}",
+                    "rightValue": 4,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Edvaldo"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        220,
+        -620
+      ],
+      "id": "b2259b30-3db1-4d4f-b4a9-5a9db304822e",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.inbox_id }}",
+                    "rightValue": 7,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    },
+                    "id": "cc2a8fc3-ed4c-498e-816e-21ddd32a4464"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Carol"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5055e619-19fa-4fed-a20a-b12bc9201f8e",
+                    "leftValue": "={{ $json.body.inbox_id }}",
+                    "rightValue": 4,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Edvaldo"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        180,
+        600
+      ],
+      "id": "c44245b3-d22b-4685-84ca-c7ca532a2d85",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363318172005511@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=📣*{{ $('Webhook').item.json.body.changed_attributes[1].custom_attributes.current_value.qualificao_do_lead }}!*\n{{ $('Webhook').item.json.body.meta.sender.phone_number }}\nEsse Lead foi criado em: {{ $json.body.contact_inbox.created_at.split(\"T\")[0] + \" \" + $json.body.contact_inbox.created_at.split(\"T\")[1].split(\".\")[0] }}\n📊Avaliação de {{ $json.body.messages[0].sender.name }}😊."
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        -780
+      ],
+      "id": "6841f1d3-7702-47d7-a732-5026ab91a6fe",
+      "name": "Karol",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363358506299458@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=📣*{{ $('Webhook').item.json.body.changed_attributes[1].custom_attributes.current_value.qualificao_do_lead }}*\n{{ $('Webhook').item.json.body.meta.sender.phone_number }}\nEsse Lead foi criado em: {{ $json.body.contact_inbox.created_at.split(\"T\")[0] + \" \" + $json.body.contact_inbox.created_at.split(\"T\")[1].split(\".\")[0] }}\n📊Avaliação de {{ $json.body.messages[0].sender.name }}😊."
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        -500
+      ],
+      "id": "d1e96ee1-d480-4173-b3e0-62ceb0c4bfaf",
+      "name": "Edvaldo",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363318172005511@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=🚨 Chegou leads novos🚀\nAtribuido a: {{ $json.body.meta.assignee.name }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        340
+      ],
+      "id": "ea088546-c6cb-4294-96b3-bdb7b8b22770",
+      "name": "Karol1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363358506299458@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=🚨 Chegou leads novos🚀\nAtribuido a: {{ $json.body.meta.assignee.name }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        820
+      ],
+      "id": "5c9d7a63-e16c-4b65-b810-33037f37b89e",
+      "name": "Edvaldo1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363417981997827@g.us "
+            },
+            {
+              "name": "text",
+              "value": "=🚨 Chegou leads novos🚀\nAtribuido a: {{ $json.body.meta.assignee.name }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        480
+      ],
+      "id": "347a0590-146e-4d80-abb1-d48b1549a50c",
+      "name": "Karol2",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363068420701463@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=🚨 Chegou leads novos🚀\nAtribuido a: {{ $json.body.meta.assignee.name }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        680
+      ],
+      "id": "1a27cbcb-0161-458b-b195-ee6ff654544c",
+      "name": "Karol3",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.inbox_id }}",
+                    "rightValue": 7,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    },
+                    "id": "cc2a8fc3-ed4c-498e-816e-21ddd32a4464"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Carol"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5055e619-19fa-4fed-a20a-b12bc9201f8e",
+                    "leftValue": "={{ $json.body.inbox_id }}",
+                    "rightValue": 4,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Edvaldo"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        200,
+        -60
+      ],
+      "id": "a65b8600-1699-448e-b6d4-5d496ac90b0b",
+      "name": "Switch3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363318172005511@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=📣🔥Cadastro fechado \npor *{{ $('Webhook').item.json.body.meta.assignee.name }}*🔥🚀\nnúmero: {{ $('Webhook').item.json.body.meta.sender.phone_number }}\n\n*Esse Lead foi criado em:* {{ $json.body.contact_inbox.created_at.split(\"T\")[0] + \" \" + $json.body.contact_inbox.created_at.split(\"T\")[1].split(\".\")[0] }}."
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        -200
+      ],
+      "id": "980a7082-4aac-4c6c-bb40-0e016c4e3b25",
+      "name": "Karol4",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363358506299458@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=📣🔥Cadastro fechado \npor *{{ $('Webhook').item.json.body.meta.assignee.name }}*🔥🚀\nnúmero: {{ $('Webhook').item.json.body.meta.sender.phone_number }}\n\n*Esse Lead foi criado em:* {{ $json.body.contact_inbox.created_at.split(\"T\")[0] + \" \" + $json.body.contact_inbox.created_at.split(\"T\")[1].split(\".\")[0] }}."
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        60
+      ],
+      "id": "20297d4f-1575-4946-9be2-eb94290eb170",
+      "name": "Edvaldo2",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo.leadscdt.com.br/message/sendText/Francisco",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "=120363068420701463@g.us"
+            },
+            {
+              "name": "text",
+              "value": "=📣🔥Cadastro fechado \npor *{{ $('Webhook').item.json.body.meta.assignee.name }}*🔥🚀\nnúmero: {{ $('Webhook').item.json.body.meta.sender.phone_number }}\n\n*Esse Lead foi criado em:* {{ $json.body.contact_inbox.created_at.split(\"T\")[0] + \" \" + $json.body.contact_inbox.created_at.split(\"T\")[1].split(\".\")[0] }}."
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        700,
+        -60
+      ],
+      "id": "35b313b6-2ec1-4713-89f2-ab732fa9db72",
+      "name": "Karol5",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ojPLr1ImI4RqyPlx",
+          "name": "PatrocinioFrancisco"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Karol",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edvaldo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Karol1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Karol2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Karol3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edvaldo1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Karol2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Karol3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch3": {
+      "main": [
+        [
+          {
+            "node": "Karol4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Karol5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edvaldo2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Karol5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c5302acc-c0a9-4b53-99c1-07b19c5049c1",
+  "meta": {
+    "instanceId": "f763e8fdca77702870cf690f15089984a3c3202426ce948f8e26feb070a0b4a8"
+  },
+  "id": "jKphQ9smnyKelreX",
+  "tags": []
+}
